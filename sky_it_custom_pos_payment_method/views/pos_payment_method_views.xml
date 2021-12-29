@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="inherit_view_pos_payment_method_inherit_sky_it" model="ir.ui.view">
+            <field name="name">pos.payment.method.inherit.sky.it</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group" position="after">
+                    <group name="Payment Charges" string="Payment Charge">
+                        <field name="charges_applicable" widget="boolean_toggle"/>
+                        <field name="account_id" required="1" attrs="{'invisible': [('charges_applicable', '=', False)]}"/>
+                        <field name="tax_payable" required="1" attrs="{'invisible': [('charges_applicable', '=', False)]}"/>
+                        <label for="fees_rate" attrs="{'invisible': [('charges_applicable', '=', False)]}"/>
+                        <div attrs="{'invisible': [('charges_applicable', '=', False)]}"><field name="fees_rate" class="oe_inline"/>%%</div>
+                        <field name="additional_fees" attrs="{'invisible': [('charges_applicable', '=', False)]}"/>
+                        <field name="max_fees" attrs="{'invisible': [('charges_applicable', '=', False)]}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
