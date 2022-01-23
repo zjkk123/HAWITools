@@ -7,5 +7,7 @@
         'view/Header_Update.xml'
     ],
     'installable': True,
+    'demo': [],
+    'application':False,
+    'auto_install': False
 }
-    
