@@ -2,7 +2,7 @@
 <odoo>
 <data> 
 <template id="header_update_logo" inherit_id="web.external_layout_standard">
-   <xpath expr="t/div[0]/div[0]/div[0]" position="replace">
+   <xpath expr="t/div[1]/div[1]/div[1]" position="replace">
    </xpath>
 </template>
 </data>                            
