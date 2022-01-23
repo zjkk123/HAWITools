@@ -6,7 +6,6 @@
     'data': [
         'view/Header_Update.xml'
     ],
-    'installable': True
-
+    'installable': True,
 }
     
