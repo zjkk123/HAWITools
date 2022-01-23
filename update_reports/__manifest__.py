@@ -4,7 +4,7 @@
     'summary': 'Update Body and Header of invoice',
     'depends': ["base"],
     'data': [
-        'view/Header_Update.xml'
+        'report/Header_Update.xml'
     ],
     'installable': True,
     'demo': [],
