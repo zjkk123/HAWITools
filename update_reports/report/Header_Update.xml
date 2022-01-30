@@ -23,6 +23,7 @@
 
         <xpath expr="/t/div[1]/div[3]/div[3]" position="replace">
             <div class="col-7" name="company_address" dir="rtl" style="text-align:right">
+            </div>
         </xpath>
     </template>
 </odoo>
