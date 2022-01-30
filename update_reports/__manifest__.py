@@ -2,7 +2,7 @@
     'name': "Update invoice report",
     'category': "report",
     'summary': 'Update Body and Header of invoice',
-    'depends': ["base"],
+    'depends': ["base", "account_accountant", "sale_management"],
     'data': [
         'report/Header_Update.xml'
     ],
