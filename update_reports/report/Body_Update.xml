@@ -1,47 +1,8 @@
 <?xml version="1.0"?>
 <odoo>
     <template id="subtotal_invoice_body_update" inherit_id="account.report_invoice_document">
-        <xpath expr="/t/t/div[1]/div[2]" position="replace">
-            <div class="clearfix row">
-                <div id="total" class="row col-7">
-                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
-                        <table class="table table-sm" style="page-break-inside: avoid;">
-
-                            <!--Tax totals-->
-                            <t t-set="tax_totals" t-value="json.loads(o.tax_totals_json)"/>
-                            <t t-call="account.document_tax_totals"/>
-
-                            <!--Payments-->
-                            <t t-if="print_with_payments">
-                                <t t-if="o.payment_state != 'invoicing_legacy'">
-                                    <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
-                                    <t t-foreach="payments_vals" t-as="payment_vals">
-                                        <tr>
-                                            <td>
-                                                <i class="oe_form_field text-right oe_payment_label">Paid on <t t-esc="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></i>
-                                            </td>
-                                            <td class="text-right">
-                                                <span t-esc="payment_vals['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                    <t t-if="len(payments_vals) &gt; 0">
-                                        <tr class="border-black">
-                                            <td><strong>Amount Due</strong></td>
-                                            <td class="text-right">
-                                                <span t-field="o.amount_residual"/>
-                                            </td>
-                                        </tr>
-                                    </t>
-                                </t>
-                            </t>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-5">
-                    <img t-if="doc.l10n_sa_qr_code_str" style="display:block;margin:10% auto 0 auto;" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', doc.l10n_sa_qr_code_str, 75, 75)"/>
-                </div>
-            </div>
+        <xpath expr="/t/t/div[1]/div[2]/div[1]/div[1]" position="after">
+            <img t-if="o.l10n_sa_qr_code_str" style="display:block;margin:10% auto 0 auto;" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', o.l10n_sa_qr_code_str, 75, 75)"/>
         </xpath>
     </template>
 </odoo>
