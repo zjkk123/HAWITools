@@ -6,7 +6,7 @@
     'data': [
         'report/Header_Update.xml',
         'report/Body_Update.xml',
-        'QR_size.xml'
+        'report/QR_size.xml'
     ],
     'installable': True,
     'demo': [],
