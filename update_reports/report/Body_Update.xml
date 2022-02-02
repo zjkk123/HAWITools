@@ -2,7 +2,7 @@
 <odoo>
     <template id="subtotal_invoice_body_update" inherit_id="sale.report_saleorder_document">
         <xpath expr="/t/t/div/div[3]" position="replace">
-            <t t-set="o" t-value="o.with_context(lang='en_US')"/>
+            <p>Hello</p>
             <div class="row">
                 <div class="col-7">
                     <div class="clearfix" name="so_total_summary">
