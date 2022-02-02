@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="subtotal_invoice_body_update" inherit_id="sale.report_saleorder_document">
+        <xpath expr="/t/t/div[1]/div[3]" position="replace">
+            
+            <div class="row">
+                <div class="col-7">
+                    <div class="clearfix" name="so_total_summary">
+                        <div id="total" class="row" name="total">
+                            <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                <table class="table table-sm">
+                                    <!-- Tax totals -->
+                                    <t t-set="tax_totals" t-value="json.loads(doc.tax_totals_json)"/>
+                                    <t t-call="account.document_tax_totals"/>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <img t-if="o.l10n_sa_qr_code_str" style="display:block;margin:10% auto 0 auto;" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', o.l10n_sa_qr_code_str, 75, 75)"/>
+                </div>
+            </div>
+
+        </xpath>
+    </template>
+</odoo>
