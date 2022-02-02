@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
     <template id="subtotal_invoice_body_update" inherit_id="account.report_invoice_document">
-        <xpath expr="//div[@class='clearfix']" position="replace">
+        <xpath expr="/t/t/div[1]/div[2]" position="replace">
             <p>Hello</p>
             <div class="row">
                 <div class="col-7">
