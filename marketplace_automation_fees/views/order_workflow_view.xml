@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="order_workflow_form_view" model="ir.ui.view">
+            <field name="name">order.workflow.config.ts.inherited</field>
+            <field name="model">order.workflow.config.ts</field>
+            <field name="inherit_id" ref="marketplace_automation_ts.order_workflow_form_view"/>
+            <field name="arch" type="xml">
+                <group name="stock" position="after">
+                    <group string="Fees" attrs="{'invisible': [('is_register_payment','=', False)]}">
+                        <field name="is_included_fees" widget="boolean_toggle"/>
+                        <field name="fee_percent"
+                               attrs="{'invisible': [('is_included_fees','=', False)], 'required': [('is_included_fees','=', True)]}"/>
+                        <field name="fee_account_id"
+                               attrs="{'invisible': [('is_included_fees','=', False)], 'required': [('is_included_fees','=', True)]}"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>
